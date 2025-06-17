@@ -48,7 +48,7 @@ class PostController extends Controller
 
     public function store(StoreRequest $request){
         $post = Post::create([
-            'user_id' => 1,
+            'user_id' => Auth::user()->id,
             'description' => $request->description,
             'image' => 'data:image/'. $request->image->extension().';base64,'.base64_encode(file_get_contents($request->image))
         ]);
