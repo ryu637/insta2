@@ -60,8 +60,9 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-#　インストール方法
 
+## インストール方法
+```bash
 ##  リポジトリーをクローンする
 git clone https://github.com/ryu637/insta2.git
 cd insta2
