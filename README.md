@@ -59,3 +59,39 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+##　インストール方
+
+#  リポジトリーをクローンする
+git clone https://github.com/ryu637/insta2.git
+cd insta2
+
+# 依存関係をインストール(larabel)
+composer install
+
+#　環境設定ファイルを作成
+cp .env.example .env
+
+# アプリケーションキーを作成
+php artisan key:generate
+
+#　設定をクリアして反映する
+php artisan config:clear
+php artisan cache:clear
+
+
+# データベースを作成し、migration 
+php artisan migrate 
+(php artisan migrate --seed)
+
+# npm 依存関係をインストール(フロントエンド)
+npm install && npm run dev
+
+# 必要なら本番環境用のビルド
+npm run build
+
+# 開発サーバーを起動
+php artisan serve
+
+
+
