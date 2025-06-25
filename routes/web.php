@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LikeController;
+use App\Http\controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,5 +24,8 @@ Route::group(['middleware' => 'auth'], function(){
     #liked 
     Route::post('/like/{post_id}/store', [LikeController::class, 'store'])->name('like.store');
     Route::delete('/like/{post_id}/delete', [LikeController::class, 'delete'])->name('like.delete');
+
+    #profile 
+    Route::get('/profile/{id}/show', [ProfileController::class, 'index'])->name('profile.show');
 
 });

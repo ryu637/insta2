@@ -4,5 +4,6 @@
 
 @section('content')
     @include('users.profile.header')
+    
 
 @endsection
