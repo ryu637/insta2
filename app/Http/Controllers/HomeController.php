@@ -3,18 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 
 class HomeController extends Controller
 {
+
+    private $post;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Post $post_model)
     {
+        $this->post = $post_model;
         $this->middleware('auth');
+    }
+
+    public function getHomePosts(){
+        $all_posts = $this->post->latest()->get();
+        return $all_posts;
     }
 
     /**
@@ -24,6 +33,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('users.home');
+        $all_posts = $this->getHomePosts();
+        return view('users.home')->with('all_posts',$all_posts);
     }
 }

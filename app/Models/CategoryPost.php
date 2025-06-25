@@ -10,6 +10,6 @@ class CategoryPost extends Model
     protected $fillable = ['category_id', 'post_id'];
     public $timestamps = false;
     public function category(){
-        return $this->belongsTo(Categories::class);
+        return $this->belongsTo(Category::class);
     }
 }
